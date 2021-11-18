@@ -5,7 +5,6 @@ pygame.init()
 pygame.font.init()
 my_font = pygame.font.SysFont('Script typeface', 35)
 
-
 screen = pygame.display.set_mode((751, 500))
 backround = pygame.image.load("C:/Users/kyria/Desktop/control_servo_via_air_condition/155.jpg")
 #  i have to convert from jpg to bmp
@@ -22,15 +21,12 @@ score = 0
 a= 0
 direction = 'None'
 
-
 def touch_the_ground_or_the_sky(y_position):
     if y_position > 436:
         y_position = 436
     elif y_position < 0:
         y_position = 0
-
     return y_position
-
 
 while True:
 
@@ -61,7 +57,7 @@ while True:
     y = touch_the_ground_or_the_sky(y)
     if y == 436:
         score = 0
-
+    
     x += velocity_x
     velocity_x = velocity_x + gravity_for_x
     gravity_for_x = gravity_for_x - a
@@ -77,22 +73,10 @@ while True:
     if x < 0:
         gravity_for_x = 1
         a = 0.2
-        print('hey')
     elif x > 687:
         gravity_for_x = -1
         a = -0.2
-        print('hey')
 
     screen.blit(ball, (int(x), int(y)))
     pygame.display.update()
     screen.blit(backround, (0, 0))
-
-
-
-
-
-
-
-
-
-
